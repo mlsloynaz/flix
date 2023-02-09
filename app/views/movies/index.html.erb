@@ -1,0 +1,23 @@
+
+<h1>Movies</h1>
+<% @movies.each do |movie| %>
+  <section class="movie">
+    <div class="summary">
+      <h2>
+        <%= link_to movie.title , movie_path(movie)%>
+      </h2>
+      <h3>
+        <%= total_gross(movie) %>
+      </h3>
+      <p>
+        <%= trunc_40(movie.description) %>
+      </p>
+      <p><%=year_of(movie)%></p>
+    </div>
+  </section>
+
+<% end %>
+
+<section class="admin">
+  <%= link_to "Add New Movie", new_movie_path, class: "button" %>
+</section>

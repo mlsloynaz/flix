@@ -21,7 +21,10 @@
         </ul>
       </nav>
     </header>
-    <%= yield %>
+    <div class="content">
+      <%= render "layouts/flash" %>
+      <%= yield %>
+    </div>
     <footer>
       <p>
         <%=link_to "Rails Api doc", "https://api.rubyonrails.org/" %>

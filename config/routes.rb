@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :reviews
+
   resources :your_scaffolds
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "movies#index"
@@ -11,5 +11,8 @@ Rails.application.routes.draw do
 #   # root "articles#index"
 #   patch "movies/:id" => "movies#update"
 
-resources :movies
+# to achieve /movies/2/reviews
+  resources :movies do
+    resources :reviews
+  end
 end

@@ -72,3 +72,7 @@ redirect_to event_url, status: see_other
 ?? why on the redirect_to in the controller we should use the url versus the path, I guess because it comes not from from the server versus the browser? 
 kill server :  lsof -wni tcp:3000 kill -9  the returned port
 ?how to code format
+
+test all structure or create a fast whole module,  with
+- execute `rails g scaffold YourScaffolds mystring:string`
+-navigate to http://localhost:3000/your_scaffolds

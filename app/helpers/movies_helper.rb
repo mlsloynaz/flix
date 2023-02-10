@@ -12,6 +12,8 @@ module MoviesHelper
     end
 
     def year_of(movie)
-        movie.released_on.year
+        if movie.released_on
+         movie.released_on.year
+        end
     end
 end

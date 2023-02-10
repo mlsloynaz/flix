@@ -43,7 +43,10 @@ Migration
 - rails generate migration  AddFileldsToStudents title:string start_at:datetime
 - if we name the migration at the end ToStudents  -> apply the changes to the Students table of the database , Ex: AddFileldsToStudents
 - rails db:migrate , applies the migration 
-numbers : 225M -> 225_000_000
+numbers : 225M -> 225_000_000 , 225_000_000 is a Ruby-specific representation of the same number:
+right : Movie.where("total_gross < ?", 225_000_000)
+wrong : Movie.where("total_gross < 225_000_000")
+right: Movie.where("total_gross < 225000000")
 ? - do you p[ass the whole instance variable to the helper, or a field
 ? - how can I hover and see the signature of a method
 
@@ -68,3 +71,4 @@ redirect_to event_url, status: see_other
 ??? see why is see_other
 ?? why on the redirect_to in the controller we should use the url versus the path, I guess because it comes not from from the server versus the browser? 
 kill server :  lsof -wni tcp:3000 kill -9  the returned port
+?how to code format

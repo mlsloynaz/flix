@@ -16,10 +16,12 @@ class MoviesController < ApplicationController
     end
 
     def update
-        @movie=Movie.find(params[:id])
-        #@movie.update(params[:movie].permit(:title, :description, :rating, :released_on, :total_gross))
-        @movie.update(movie_params)  
-        redirect_to @movie
+        @movie = Movie.find(params[:id])
+        if @movie.update(movie_params)
+          redirect_to @movie
+        else
+          render :edit, status: :unprocessable_entity
+        end
     end
 
     def create
@@ -28,18 +30,18 @@ class MoviesController < ApplicationController
         redirect_to @movie
       end
 
-    # def destroy
-    #     @movie = Movie.find(params[:id])
-    #     @movie.def destroy
-    #     redirect_to movies_url , status: see_other    
-    # end
+      def destroy
+        @movie = Movie.find(params[:id])
+        @movie.destroy
+        redirect_to movies_url, status: :see_other
+      end
 
 
     private
 
     def movie_params
         params.require(:movie).
-        permit(:title, :description, :rating, :released_on, :total_gross)
+        permit(:title, :description, :rating, :released_on, :total_gross, :director, :duration, :image_file_name)
     end
 
 end

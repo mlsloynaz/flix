@@ -3,6 +3,9 @@
 <% @movies.each do |movie| %>
   <section class="movie">
     <div class="summary">
+      <div class="image">
+        <%= image_tag movie.image_file_name %>
+      </div>
       <h2>
         <%= link_to movie.title , movie_path(movie)%>
       </h2>
@@ -13,6 +16,7 @@
         <%= trunc_40(movie.description) %>
       </p>
       <p><%=year_of(movie)%></p>
+      <p><%=movie.duration%></p>
     </div>
   </section>
 
